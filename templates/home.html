@@ -1,0 +1,53 @@
+
+{% block content %}
+    <h1>Personal Profile</h1>
+    <h3>{{ object.firstname}} {{object.lastname }}</h3>
+    <h4>{{ object.profession}}</h4>
+    <a href="mailto:" {{ object.email}}>Email</a>
+    <a href="callto:" {{ object.contact}}>Contact</a>
+    <address> address: {{ object.address}}</address>
+    <img src="{{object.profile.url}}"></img>
+
+    <h1> Eduaction </h1>
+    {% for education in education_obj %}
+        <ul> {{ education.college}}
+            <li>level: {{ education.level}}</li>
+            <li>faculty: {{ education.faculty}}</li>
+            <li>score: {{ education.score}}</li>
+        </ul>
+    {% endfor %}
+
+
+    <h1> Experiences </h1>
+    {% for experience in experience_obj %}
+        <ul> {{ experience.companyname}}
+            <li>Work done: {{ experience.workdone}}</li>
+            <li>Work time: {{ experience.startdate}}-{{ experience.enddate}}</li>
+            
+        </ul>
+    {% endfor %}
+
+    <h1> Profesional Skills </h1>
+    {% for professionskill in professionskill_obj %}
+        <ul> {{ professionskill.title}}
+            
+            <li>score: {{ professionskill.score}}</li>
+        </ul>
+    {% endfor %}
+
+
+    <h1> Skills </h1>
+    {% for skill in skill_obj %}
+        <ul> {{ skill.title}}
+            
+            <li>score: {{ skill.score}}</li>
+        </ul>
+    {% endfor %}
+
+    <h1> Skills </h1>
+    {% for hobby in hobby_obj %}
+        <ul> {{ hobby.name}}  </ul>
+    {% endfor %}
+
+
+{% endblock content %}
